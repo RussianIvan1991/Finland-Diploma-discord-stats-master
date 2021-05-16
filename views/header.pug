@@ -1,0 +1,17 @@
+header
+    a(class="header__title" href="/")
+        h1 DiscordStats
+    div(class="header__menu")
+        if session.user
+            div
+                a(href="/dashboard")
+                    button(class="btn-submit") Dashboard
+            div(class="user-avatar")
+                img(src=`https://cdn.discordapp.com/avatars/${session.user.id}/${session.user.avatar}.png`)
+            div
+                a(href="/logout")
+                    button(class="btn-submit") Logout
+        else
+            div
+                a(href="/login")
+                    button(class="btn-submit") Login

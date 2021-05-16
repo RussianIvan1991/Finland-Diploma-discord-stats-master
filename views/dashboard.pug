@@ -1,0 +1,40 @@
+include head
+body
+  include header
+  div(class="container container-main")
+    div(class="row")
+      div(class="col-12 text-center")
+        div(class="dashboard__content")
+          div
+            a(href="https://discordapp.com/api/oauth2/authorize?client_id=842572998083215370&scope=bot&permissions=65536" target="_blank")
+              button(class="btn-submit") Add bot
+          div(class="dashboard__process-started" style="display: none")
+            span Reading messages...
+          if session.user
+            form(id="channel-selector")
+              select(name="guildID" value="")
+                option(selected disabled) Сервер
+                each guild in guilds
+                  option(value=guild.id) #{guild.name}
+              |
+              |
+              input(name="channelID" type="hidden")
+              each guild, guildID in channels
+                select(class="disabled" data-guild=guildID)
+                  option(selected disabled) Канал
+                  each channel in guild
+                    option(value=channel.id) #{channel.name}
+            button(class="btn-submit" id="start-stats") Start
+          div(class="dashboard__stats")
+            if stats
+              each stat, channelID in stats
+                div(class="dashboard__stats_channel" data-channel=channelID style="display: none")
+                  if stat.words
+                    div
+                      each word in stat.words
+                        span(style="display: block") #{word.word} - #{word.num}
+                  if stat.emoji
+                    div
+                      each emoji in stat.emoji
+                        span(style="display: block") #{emoji.emoji} - #{emoji.num}
+  include footer
