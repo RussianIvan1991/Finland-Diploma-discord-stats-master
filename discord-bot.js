@@ -4,7 +4,7 @@ const fs = require('fs');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity('who am I? 🤔');
+    client.user.setActivity('Protects the diploma');
 });
 
 client.on('message', msg => {

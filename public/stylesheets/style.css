@@ -25,9 +25,20 @@ header {
     max-width: 85%;
     margin: auto auto 80px;
 }
+.header__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo img {
+    max-width: 250px;
+}
 .header__title {
     color: white;
     text-align: center;
+}
+.header__title h1 {
+    padding-top: 10px;
 }
 .header__title:hover {
     color: white;

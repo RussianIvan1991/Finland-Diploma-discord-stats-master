@@ -1,6 +1,9 @@
 header
-    a(class="header__title" href="/")
-        h1 DiscordStats
+    div(class="header__logo")
+        img(src="/images/logo.svg" width="150px")
+        a(class="header__title" href="/")
+            h1 DiscordStats
+        img(src="https://www.ks54.ru/wp-content/uploads/2020/03/ks54-named-c-left.png" height="50px")
     div(class="header__menu")
         if session.user
             div
